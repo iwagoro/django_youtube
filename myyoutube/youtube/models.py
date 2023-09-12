@@ -10,4 +10,4 @@ class Video(models.Model):
 class Comment(models.Model):
     video = models.ForeignKey(Video,on_delete=models.CASCADE)
     text = models.TextField()
-    published_date = models.DateTimeField()
+    published_at = models.DateTimeField()
