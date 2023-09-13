@@ -1,4 +1,4 @@
-{% load static %} {% load static %}
+{% load static %}
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
@@ -11,8 +11,16 @@
   </head>
 
   <body>
-    <div id="content">
+    <div id="head">
+      <a
+        id="cancel-button"
+        href="{% url 'home' %}"
+        class="material-symbols-outlined"
+        >close</a
+      >
       <h1>動画をアップロード</h1>
+    </div>
+    <div id="content">
       <form enctype="multipart/form-data" method="POST" class="post-form">
         {% csrf_token %}
         <div id="forms">

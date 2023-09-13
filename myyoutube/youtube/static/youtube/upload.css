@@ -70,3 +70,17 @@ button {
   justify-content: center;
   align-items: center;
 }
+
+#head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cancel-button {
+  color: white;
+  text-decoration: none;
+  margin-right: 40px;
+  position: absolute;
+  right: 0;
+}
