@@ -6,11 +6,14 @@ body {
 }
 
 p {
+  overflow: hidden;
   font-size: 10px;
+  white-space: nowrap;
 }
 
 a {
   color: white;
+  text-decoration: none;
 }
 
 /*◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤トップバー◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤*/
