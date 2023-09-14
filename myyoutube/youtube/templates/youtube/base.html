@@ -1,0 +1,82 @@
+{% load static %}
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Youtube</title>
+    <link rel="stylesheet" href="{% static 'youtube/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'youtube/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'youtube/upload.css' %}" />
+    <link rel="stylesheet" href="{% static 'youtube/video_detail.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body>
+    <!--◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤トップバー◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤-->
+    <div id="topbar" class="base">
+      <div class="button-container">
+        <a name="offline" class="button" style="padding: 0 20px">
+          <div class="material-symbols-outlined">menu</div>
+        </a>
+
+        <a
+          name="logo"
+          class="button"
+          style="padding: 24px"
+          href="{% url 'home' %}"
+        >
+          <div class="material-symbols-outlined">youtube_activity</div>
+          Youtube
+        </a>
+      </div>
+
+      <div class="button-container">
+        <a
+          name="account"
+          class="button"
+          style="padding: 0 8px"
+          href="{% url 'upload' %}"
+        >
+          <div class="material-symbols-outlined">video_call</div>
+        </a>
+        <a name="account" class="button" style="padding: 8px">
+          <div class="material-symbols-outlined">notifications</div>
+        </a>
+
+        <a name="account" class="button" style="padding: 8px">
+          <div class="material-symbols-outlined">account_circle</div>
+        </a>
+      </div>
+    </div>
+    <!--◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤サイドバーとコンテンツ◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤-->
+    <div id="main" class="base">
+      <div id="sidebar" class="base">
+        <a name="offline" class="button" href="{% url 'home' %}">
+          <div class="material-symbols-outlined">home</div>
+          <p>ホーム</p>
+        </a>
+
+        <a name="offline" class="button">
+          <div class="material-symbols-outlined">subscriptions</div>
+          <p>登録チャンネル</p>
+        </a>
+
+        <a name="offline" class="button">
+          <div class="material-symbols-outlined">video_library</div>
+          <p>ライブラリー</p>
+        </a>
+
+        <a name="offline" class="button">
+          <div class="material-symbols-outlined">arrow_downward</div>
+          <p>オフライン</p>
+        </a>
+      </div>
+      <div id="content" class="base">
+        <div class="card-group home">{% block content %} {% endblock %}</div>
+      </div>
+    </div>
+  </body>
+  <script></script>
+</html>

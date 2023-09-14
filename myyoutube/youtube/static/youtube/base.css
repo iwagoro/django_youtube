@@ -1,0 +1,72 @@
+body {
+  padding: "0";
+  margin: 0;
+  background-color: #1e1e1e;
+  color: white;
+}
+
+p {
+  overflow: hidden;
+  font-size: 10px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+/*◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤トップバー◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤*/
+.base#topbar {
+  background-color: #1e1e1e;
+  width: 100vw;
+  height: 56px;
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.base#topbar .button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.base#topbar .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤サイドバー◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤*/
+.base#sidebar {
+  margin: 0 16px;
+  position: fixed;
+  left: 0px;
+  top: 56px;
+}
+
+.base#sidebar .button {
+  width: 64px;
+  height: auto;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/*◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤コンテンツ◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤*/
+.base#content {
+  background-color: #1e1e1e;
+  height: auto;
+  margin-left: 96px;
+  margin-top: 56px;
+  flex-grow: 1;
+}

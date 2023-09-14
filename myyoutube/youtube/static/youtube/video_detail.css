@@ -1,0 +1,120 @@
+#video-detail-page {
+  width: 100%;
+  display: flex;
+}
+
+.video-detail#main {
+  width: 75%;
+  height: auto;
+}
+
+.video-detail#suggest {
+  width: 25%;
+}
+
+.video-detail#main #video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5/3;
+  object-fit: cover;
+}
+
+.video-detail#main #author-info {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.video-detail#main #author {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+.video-detail#main #description {
+  width: 100%;
+  margin: 16px 0 0 0;
+  box-sizing: border-box;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #232323;
+  overflow-wrap: normal;
+}
+
+.video-detail#main #description p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.video-detail#comment-forms #forms {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.video-detail#comment-forms input {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid white;
+  border-radius: 0;
+  width: 95%;
+}
+
+.video-detail#comment-forms button {
+  width: fit-content;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.video-detail.card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5/3;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.video-detail.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin: 10px;
+  flex: 1;
+  min-width: calc(100% - 20px);
+  max-width: calc(100% - 20px);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.video-detail#description {
+  margin-top: 16px;
+  display: flex;
+  justify-content: left;
+  width: 100%;
+}
+
+.video-detail#description img {
+  width: 36px;
+  height: 36px;
+  margin: 0 12px 0 0;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.video-detail#description #title p {
+  margin: 0;
+  font-size: 16px;
+  color: white;
+}
+
+.video-detail#description #detail p {
+  margin: 0;
+  font-size: 12px;
+  color: gray;
+}

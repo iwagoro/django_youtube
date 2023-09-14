@@ -1,12 +1,5 @@
-body {
-  padding: "0";
-  margin: 0;
-  background-color: #0f0f0f;
-  color: white;
-}
-
 input {
-  background-color: #0f0f0f;
+  background-color: #1e1e1e;
   color: white;
   border-radius: 6px;
   font-size: 16px;
@@ -14,7 +7,7 @@ input {
 }
 
 textarea {
-  background-color: #0f0f0f;
+  background-color: #1e1e1e;
   color: white;
   border-radius: 6px;
   font-size: 16px;
@@ -26,22 +19,37 @@ label {
   font-size: 13px;
 }
 
-button {
-  background: deepskyblue;
-  padding: 10px 20px 10px 20px;
-  border: 0;
-  border-radius: 10px;
-  color: #464646;
+#upload-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#content {
+.upload#head {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload#head #cancel-button {
+  color: white;
+  text-decoration: none;
+  margin-right: 40px;
+  position: absolute;
+  right: 0;
+}
+
+.upload#content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-#forms {
+.upload#content #forms {
   width: 50vw;
   display: flex;
   flex-direction: column;
@@ -49,7 +57,15 @@ button {
   justify-content: center;
 }
 
-.input-container {
+.upload#content button {
+  background: deepskyblue;
+  padding: 10px 20px 10px 20px;
+  border: 0;
+  border-radius: 10px;
+  color: #464646;
+}
+
+.upload#content .input-container {
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -57,7 +73,7 @@ button {
   margin-bottom: 50px;
 }
 
-.thumbnail-button {
+.upload#content .thumbnail-button {
   cursor: pointer;
   width: fit-content;
   border-radius: 10px;
@@ -69,18 +85,4 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-#head {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#cancel-button {
-  color: white;
-  text-decoration: none;
-  margin-right: 40px;
-  position: absolute;
-  right: 0;
 }
