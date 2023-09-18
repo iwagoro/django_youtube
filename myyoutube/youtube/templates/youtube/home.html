@@ -1,83 +1,26 @@
-{% load static %}
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>Youtube</title>
-    <link rel="stylesheet" href="{% static 'youtube/home.css' %}" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-  </head>
-
-  <body>
-    <!--◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤トップバー◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤-->
-    <div id="topbar">
-      <div class="button-container">
-        <a name="offline" class="button" style="padding: 8px">
-          <div class="material-symbols-outlined">menu</div>
+{% extends 'youtube/base.html' %} {% block content %}
+<div class="card-group home">
+  {% for video in videos %}
+  <div class="card">
+    <a href="{% url 'video_detail' pk=video.pk %}">
+      <img class="thumbnail" src="{{video.thumbnail.url}}" />
+    </a>
+    <div class="description home">
+      <img class="icon" src="{{video.thumbnail.url}}" />
+      <div class="text">
+        <a class="title home" href="{% url 'video_detail' pk=video.pk %}">
+          <p>{{video.title}}</p>
         </a>
-
-        <a name="logo" class="button" style="padding: 16px">
-          <div class="material-symbols-outlined">youtube_activity</div>
-          Youtube
-        </a>
-      </div>
-
-      <div class="button-container">
-        <a
-          name="account"
-          class="button"
-          style="padding: 8px"
-          href="{% url 'upload' %}"
-        >
-          <div class="material-symbols-outlined">video_call</div>
-        </a>
-
-        <a name="account" class="button" style="padding: 8px">
-          <div class="material-symbols-outlined">account_circle</div>
-        </a>
-      </div>
-    </div>
-    <!--◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤サイドバーとコンテンツ◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤-->
-    <div id="main">
-      <div id="sidebar">
-        <a name="offline" class="button">
-          <div class="material-symbols-outlined">home</div>
-          <p>ホーム</p>
-        </a>
-
-        <a name="offline" class="button">
-          <div class="material-symbols-outlined">subscriptions</div>
-          <p>登録チャンネル</p>
-        </a>
-
-        <a name="offline" class="button">
-          <div class="material-symbols-outlined">video_library</div>
-          <p>ライブラリー</p>
-        </a>
-
-        <a name="offline" class="button">
-          <div class="material-symbols-outlined">arrow_downward</div>
-          <p>オフライン</p>
-        </a>
-      </div>
-      <div id="content">
-        <div class="card-group">
-          {% for video in videos %}
-          <div class="card">
-            <img src="{{video.thumbnail.url}}" />
-            <div id="description">
-              <img src="{{video.thumbnail.url}}" />
-              <p>{{video.title}}</p>
-            </div>
-          </div>
-          {% endfor %}
-          <div style="height: auto; flex-grow: 1">
-            <!--カードを左側に寄せる役-->
-          </div>
+        <div class="detail home">
+          <p>hogehogeチャンネル</p>
+          <p>59万回視聴 {{ video.published_at|timesince }}前</p>
         </div>
       </div>
     </div>
-  </body>
-</html>
+  </div>
+  {% endfor %}
+  <div style="height: auto; flex-grow: 1">
+    <!--カードを左側に寄せる役-->
+  </div>
+</div>
+{% endblock %}

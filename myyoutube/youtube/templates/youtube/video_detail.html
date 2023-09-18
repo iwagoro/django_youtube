@@ -1,0 +1,168 @@
+{% extends 'youtube/base.html' %} {% block content %}
+<div id="video-detail-page">
+  <div class="main video-detail">
+    <!--VIDEO-->
+    <img class="video" src="{{selectedVideo.thumbnail.url}}" />
+    <h2>{{selectedVideo.title}}</h2>
+    <div class="author-info">
+      <img
+        class="author"
+        src="{{selectedVideo.thumbnail.url}}"
+        style="padding-right: 10px"
+      />
+      <div>
+        <h4 style="margin: 0">hogehogeチャンネル</h4>
+        <h5 style="color: gray; margin: 0">チャンネル登録者数 10万人</h5>
+      </div>
+    </div>
+    <div class="description">
+      <p>59万回視聴 {{ selectedVideo.published_at|timesince }}前に公開</p>
+      <p>{{selectedVideo.description}}</p>
+    </div>
+    <!--COMMENTS-->
+    <div class="comments video-detail">
+      <h4 id="comment-count">{{comments|length}}件のコメント</h4>
+      <!--MY-COMMENT-->
+      <div class="my-comment">
+        <form action="{% url 'comment' %}" method="POST" id="comment-form">
+          <div class="forms video-detail">
+            <img
+              class="author video-detail"
+              src="https://source.unsplash.com/random"
+            />
+            {% csrf_token %}
+            <input name="text" type="text" />
+          </div>
+          <div style="display: flex; width: 99%">
+            <div style="flex-grow: 1; height: 1px"></div>
+            <button type="submit" class="upload">コメント</button>
+          </div>
+        </form>
+      </div>
+      {% for comment in comments %}
+      <!--OTHER-COMMENT-->
+      <div class="other-comment">
+        <img
+          class="author video-detail"
+          src="https://source.unsplash.com/random"
+          style="padding-right: 10px"
+        />
+        <div>
+          <p class="author-info">
+            @hogehogeチャンネル
+            <span style="color: gray"
+              >{{ comment.published_at|timesince }}前</span
+            >
+          </p>
+          <p class="content">{{comment.text}}</p>
+          <div class="acctions">
+            <span class="material-symbols-outlined"> thumb_up </span>
+            <span class="material-symbols-outlined"> thumb_down </span>
+          </div>
+        </div>
+      </div>
+      <!---->
+      {% endfor %}
+    </div>
+  </div>
+  <!--SUGGEST-->
+  <div class="suggest video-detail">
+    {% for video in videos %}
+    <div class="card video-detail">
+      <a href="{% url 'video_detail' pk=video.pk %}">
+        <img src="{{video.thumbnail.url}}" class="video-link" />
+      </a>
+      <div class="description video-detail">
+        <img src="{{video.thumbnail.url}}" />
+        <div>
+          <a class="title" href="{% url 'video_detail' pk=video.pk %}">
+            <p>{{video.title}}</p>
+          </a>
+          <div class="detail">
+            <p>hogehogeチャンネル</p>
+            <p>59万回視聴 {{ video.published_at|timesince }}前</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <script>
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== "") {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = jQuery.trim(cookies[i]);
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === name + "=") {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+
+    var csrftoken = getCookie("csrftoken");
+
+    function csrfSafeMethod(method) {
+      // these HTTP methods do not require CSRF protection
+      return /^(GET|HEAD|OPTIONS|TRACE)$/.test(method);
+    }
+
+    $.ajaxSetup({
+      beforeSend: function (xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+          xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+      },
+    });
+
+    $("#comment-form").submit(function (e) {
+      e.preventDefault();
+      $.ajax({
+        url: '{% url "comment" %}',
+        type: "POST",
+        data: {
+          comment: $('#comment-form input[name="text"]').val(),
+          video_id: "{{selectedVideo.pk}}",
+        },
+        dataType: "json",
+      })
+        .done((data) => {
+          const commentHTML = `
+            <div class="other-comment">
+        <img
+          class="author video-detail"
+          src="https://source.unsplash.com/random"
+          style="padding-right: 10px"
+        />
+        <div>
+          <p class="author-info">
+            @hogehogeチャンネル
+            <span style="color: gray"
+              >0分前</span
+            >
+          </p>
+          <p class="content">${data.comment}</p>
+          <div class="acctions">
+            <span class="material-symbols-outlined"> thumb_up </span>
+            <span class="material-symbols-outlined"> thumb_down </span>
+          </div>
+        </div>
+      </div>
+          `;
+          $(".comments").append(commentHTML);
+          $("#comment-count").text(
+            `${parseInt($("#comment-count").text()) + 1}件のコメント`
+          );
+          $("#comment-form input[name='text']").val("");
+        })
+        .fail((data) => {
+          console.log(data);
+        });
+    });
+  </script>
+</div>
+{% endblock %}

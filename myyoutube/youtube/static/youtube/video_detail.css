@@ -1,0 +1,153 @@
+#video-detail-page {
+  width: 100%;
+  display: flex;
+}
+
+.video-detail.main {
+  width: 75%;
+  height: auto;
+
+  .video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5/3;
+    object-fit: cover;
+  }
+
+  .author-info {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    .author {
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+    }
+  }
+  .description {
+    width: 100%;
+    margin: 16px 0 0 0;
+    box-sizing: border-box;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: #232323;
+    overflow-wrap: normal;
+
+    p {
+      font-size: 14px;
+      margin: 0;
+    }
+  }
+}
+
+.video-detail.author {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  padding-right: 10px;
+}
+
+.video-detail.comments {
+  .my-comment {
+    .forms {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      margin-bottom: 16px;
+
+      input {
+        border: none;
+        outline: none;
+        border-bottom: 1px solid white;
+        border-radius: 0;
+        width: 95%;
+        background-color: #1e1e1e;
+        color: white;
+        font-size: 16px;
+        height: 40px;
+      }
+    }
+    button {
+      width: fit-content;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+
+  .other-comment {
+    display: flex;
+    margin-bottom: 20px;
+
+    .author-info {
+      margin: 0;
+      font-size: 12px;
+    }
+
+    .content {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .acctions span {
+      font-size: 20px;
+      font-weight: 200;
+    }
+  }
+}
+
+.video-detail.suggest {
+  width: 25%;
+}
+
+.video-detail.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin: 10px;
+  flex: 1;
+  min-width: calc(100% - 20px);
+  max-width: calc(100% - 20px);
+  background-color: transparent;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5/3;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}
+
+.video-detail.description {
+  margin-top: 16px;
+  display: flex;
+  justify-content: left;
+  width: 100%;
+
+  img {
+    width: 36px;
+    height: 36px;
+    margin: 0 12px 0 0;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+
+  .title p {
+    margin: 0;
+    font-size: 16px;
+    color: white;
+  }
+  .detail p {
+    margin: 0;
+    font-size: 12px;
+    color: gray;
+  }
+}
