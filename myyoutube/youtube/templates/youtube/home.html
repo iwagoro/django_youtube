@@ -1,13 +1,13 @@
 {% extends 'youtube/base.html' %} {% block content %}
-<div id="card-group" class="home">
+<div class="card-group home">
   {% for video in videos %}
-  <div class="card home">
+  <div class="card">
     <a href="{% url 'video_detail' pk=video.pk %}">
-      <img src="{{video.thumbnail.url}}" />
+      <img class="thumbnail" src="{{video.thumbnail.url}}" />
     </a>
     <div class="description home">
-      <img src="{{video.thumbnail.url}}" />
-      <div>
+      <img class="icon" src="{{video.thumbnail.url}}" />
+      <div class="text">
         <a class="title home" href="{% url 'video_detail' pk=video.pk %}">
           <p>{{video.title}}</p>
         </a>
@@ -19,8 +19,8 @@
     </div>
   </div>
   {% endfor %}
-</div>
-<div style="height: auto; flex-grow: 1">
-  <!--カードを左側に寄せる役-->
+  <div style="height: auto; flex-grow: 1">
+    <!--カードを左側に寄せる役-->
+  </div>
 </div>
 {% endblock %}

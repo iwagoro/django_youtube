@@ -1,6 +1,7 @@
 {% extends 'youtube/base.html' %} {% block content %}
 <div id="video-detail-page">
   <div class="main video-detail">
+    <!--VIDEO-->
     <img class="video" src="{{selectedVideo.thumbnail.url}}" />
     <h2>{{selectedVideo.title}}</h2>
     <div class="author-info">
@@ -18,15 +19,16 @@
       <p>59万回視聴 {{ selectedVideo.published_at|timesince }}前に公開</p>
       <p>{{selectedVideo.description}}</p>
     </div>
+    <!--COMMENTS-->
     <div class="comments video-detail">
       <h4 id="comment-count">{{comments|length}}件のコメント</h4>
-      <div class="my-coment">
+      <!--MY-COMMENT-->
+      <div class="my-comment">
         <form action="{% url 'comment' %}" method="POST" id="comment-form">
           <div class="forms video-detail">
             <img
               class="author video-detail"
               src="https://source.unsplash.com/random"
-              style="padding-right: 10px"
             />
             {% csrf_token %}
             <input name="text" type="text" />
@@ -38,41 +40,32 @@
         </form>
       </div>
       {% for comment in comments %}
-      <div class="other-comment" style="display: flex; margin-bottom: 20px">
+      <!--OTHER-COMMENT-->
+      <div class="other-comment">
         <img
           class="author video-detail"
           src="https://source.unsplash.com/random"
           style="padding-right: 10px"
         />
         <div>
-          <p class="author-info" style="margin: 0; font-size: 12px">
+          <p class="author-info">
             @hogehogeチャンネル
             <span style="color: gray"
               >{{ comment.published_at|timesince }}前</span
             >
           </p>
-          <p style="margin: 5px 0; font-size: 14px" class="content">
-            {{comment.text}}
-          </p>
+          <p class="content">{{comment.text}}</p>
           <div class="acctions">
-            <span
-              style="font-size: 20px; font-weight: 200"
-              class="material-symbols-outlined"
-            >
-              thumb_up
-            </span>
-            <span
-              style="font-size: 20px; font-weight: 200"
-              class="material-symbols-outlined"
-            >
-              thumb_down
-            </span>
+            <span class="material-symbols-outlined"> thumb_up </span>
+            <span class="material-symbols-outlined"> thumb_down </span>
           </div>
         </div>
       </div>
+      <!---->
       {% endfor %}
     </div>
   </div>
+  <!--SUGGEST-->
   <div class="suggest video-detail">
     {% for video in videos %}
     <div class="card video-detail">
@@ -139,35 +132,23 @@
       })
         .done((data) => {
           const commentHTML = `
-            <div class="other-comment" style="display: flex; margin-bottom: 20px">
+            <div class="other-comment">
         <img
           class="author video-detail"
           src="https://source.unsplash.com/random"
           style="padding-right: 10px"
         />
         <div>
-          <p id="author-name" style="margin: 0; font-size: 12px">
+          <p class="author-info">
             @hogehogeチャンネル
             <span style="color: gray"
               >0分前</span
             >
           </p>
-          <p style="margin: 5px 0; font-size: 14px" id="comment-content">
-            ${data.comment}
-          </p>
-          <div id="acctions">
-            <span
-              style="font-size: 20px; font-weight: 200"
-              class="material-symbols-outlined"
-            >
-              thumb_up
-            </span>
-            <span
-              style="font-size: 20px; font-weight: 200"
-              class="material-symbols-outlined"
-            >
-              thumb_down
-            </span>
+          <p class="content">${data.comment}</p>
+          <div class="acctions">
+            <span class="material-symbols-outlined"> thumb_up </span>
+            <span class="material-symbols-outlined"> thumb_down </span>
           </div>
         </div>
       </div>

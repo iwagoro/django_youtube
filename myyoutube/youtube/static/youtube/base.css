@@ -17,7 +17,7 @@ a {
 }
 
 /*◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤トップバー◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤*/
-.base#topbar {
+.base.topbar {
   background-color: #1e1e1e;
   width: 100vw;
   height: 56px;
@@ -35,39 +35,40 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
 
-  .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .button {
+      padding: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 
-/*◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤サイドバー◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤*/
-.base#sidebar {
-  margin: 0 16px;
-  position: fixed;
-  left: 0px;
-  top: 56px;
+.base.main {
+  .sidebar {
+    margin: 0 16px;
+    position: fixed;
+    left: 0px;
+    top: 56px;
 
-  .button {
-    width: 64px;
+    .button {
+      width: 64px;
+      height: auto;
+      padding: 16px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      white-space: nowrap;
+    }
+  }
+
+  .content {
+    background-color: #1e1e1e;
     height: auto;
-    padding: 16px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    white-space: nowrap;
+    margin-left: 96px;
+    margin-top: 56px;
+    flex-grow: 1;
   }
-}
-
-/*◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤コンテンツ◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤*/
-.base#content {
-  background-color: #1e1e1e;
-  height: auto;
-  margin-left: 96px;
-  margin-top: 56px;
-  flex-grow: 1;
 }

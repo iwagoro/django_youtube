@@ -1,10 +1,7 @@
 {% extends 'youtube/base.html' %} {% block content %}
 <div id="upload-page">
   <div class="head upload">
-    <a
-      id="cancel-button"
-      href="{% url 'home' %}"
-      class="material-symbols-outlined upload"
+    <a href="{% url 'home' %}" class="material-symbols-outlined cancel-button"
       >close</a
     >
     <h1>動画をアップロード</h1>
@@ -12,8 +9,8 @@
   <div class="content upload">
     <form enctype="multipart/form-data" method="POST">
       {% csrf_token %}
-      <div class="forms upload">
-        <div class="input-container upload">
+      <div class="forms">
+        <div class="input-container">
           <label>タイトル</label>
           <input name="title" type="text" />
         </div>
@@ -21,12 +18,12 @@
           <label>概要</label>
           <textarea name="description"></textarea>
         </div>
-        <div class="input-container upload">
-          <label class="thumbnail-button upload">
+        <div class="input-container">
+          <label class="thumbnail-button">
             <div class="material-symbols-outlined">add_photo_alternate</div>
             サムネイルをアップロード
             <input
-              class="thumbnail-input"
+              id="thumbnail-input"
               name="thumbnail"
               type="file"
               style="display: none"

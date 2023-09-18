@@ -41,45 +41,67 @@
   }
 }
 
-.video-detail.suggest {
-  width: 25%;
-}
-
 .video-detail.author {
   width: 40px;
   height: 40px;
   border-radius: 100%;
+  padding-right: 10px;
 }
 
 .video-detail.comments {
-  .forms {
+  .my-comment {
+    .forms {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      margin-bottom: 16px;
+
+      input {
+        border: none;
+        outline: none;
+        border-bottom: 1px solid white;
+        border-radius: 0;
+        width: 95%;
+        background-color: #1e1e1e;
+        color: white;
+        font-size: 16px;
+        height: 40px;
+      }
+    }
+    button {
+      width: fit-content;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+
+  .other-comment {
     display: flex;
-    justify-content: left;
-    align-items: center;
-    margin-bottom: 16px;
-  }
+    margin-bottom: 20px;
 
-  input {
-    border: none;
-    outline: none;
-    border-bottom: 1px solid white;
-    border-radius: 0;
-    width: 95%;
-    background-color: #1e1e1e;
-    color: white;
-    font-size: 16px;
-    height: 40px;
-  }
+    .author-info {
+      margin: 0;
+      font-size: 12px;
+    }
 
-  button {
-    width: fit-content;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
+    .content {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .acctions span {
+      font-size: 20px;
+      font-weight: 200;
+    }
   }
+}
+
+.video-detail.suggest {
+  width: 25%;
 }
 
 .video-detail.card {

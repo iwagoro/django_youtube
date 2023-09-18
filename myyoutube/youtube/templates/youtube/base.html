@@ -16,57 +16,57 @@
 
   <body>
     <!--◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤トップバー◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤-->
-    <div id="topbar" class="base">
+    <div class="topbar base">
+      <!--LEFT--SIDE -->
       <div class="button-container">
-        <a class="button" style="padding: 0 20px">
+        <a class="button" style="padding: 20px">
           <div class="material-symbols-outlined">menu</div>
         </a>
-
         <a class="button" style="padding: 24px" href="{% url 'home' %}">
           <div class="material-symbols-outlined">youtube_activity</div>
           Youtube
         </a>
       </div>
-
+      <!--RIGHT SIDE -->
       <div class="button-container">
-        <a class="button" style="padding: 0 8px" href="{% url 'upload' %}">
+        <a class="button" href="{% url 'upload' %}">
           <div class="material-symbols-outlined">video_call</div>
         </a>
-        <a class="button" style="padding: 8px">
+        <a class="button" href="">
           <div class="material-symbols-outlined">notifications</div>
         </a>
-
-        <a class="button" style="padding: 8px">
+        <a class="button" href="">
           <div class="material-symbols-outlined">account_circle</div>
         </a>
       </div>
+      <!---->
     </div>
     <!--◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤サイドバーとコンテンツ◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤-->
-    <div id="main" class="base">
-      <div id="sidebar" class="base">
+    <div class="main base">
+      <!--SIDE-BAR-->
+      <div class="sidebar base">
         <a class="button" href="{% url 'home' %}">
           <div class="material-symbols-outlined">home</div>
           <p>ホーム</p>
         </a>
-
-        <a class="button">
+        <a class="button" href="">
           <div class="material-symbols-outlined">subscriptions</div>
           <p>登録チャンネル</p>
         </a>
-
-        <a class="button">
+        <a class="button" href="">
           <div class="material-symbols-outlined">video_library</div>
           <p>ライブラリー</p>
         </a>
-
-        <a class="button">
+        <a class="button" href="">
           <div class="material-symbols-outlined">arrow_downward</div>
           <p>オフライン</p>
         </a>
       </div>
-      <div id="content" class="base">
+      <!--CONTENT-->
+      <div class="content base">
         <div class="home">{% block content %} {% endblock %}</div>
       </div>
+      <!---->
     </div>
   </body>
   <script></script>
