@@ -6,7 +6,8 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from django.utils import timezone
 from django.http import HttpResponse
-
+import json
+from django.http import JsonResponse
 
 
 def home(request):
@@ -35,16 +36,13 @@ def video_detail(request,pk):
     selectedVideo = get_object_or_404(Video,pk=pk)
     videos = Video.objects.all()
     comments = Comment.objects.filter(video=selectedVideo)
-    if request.method == 'POST':
-        print("post")
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            print("form is valid")
-            comment = form.save(commit=False)
-            comment.video = selectedVideo
-            comment.published_at = timezone.now()
-            comment.save()
-            return redirect('video_detail',pk=pk)
-    else:
-        form = CommentForm()
-    return render(request,'youtube/video_detail.html',{'form':form,'selectedVideo':selectedVideo,'videos':videos,'comments':comments})
+    return render(request,'youtube/video_detail.html',{'selectedVideo':selectedVideo,'videos':videos,'comments':comments})
+
+def comment(request):
+    comment = request.POST.get('comment')
+    video_id = request.POST.get('video_id')
+    publish_at = timezone.now()
+    if(comment != None and video_id != None):
+        new_comment = Comment(video_id=video_id,text=comment,published_at=publish_at)
+        new_comment.save()
+    return JsonResponse({'comment':comment})

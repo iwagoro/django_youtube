@@ -1,4 +1,4 @@
-.home.card-group {
+.home#card-group {
   display: flex;
   width: 100%;
   box-sizing: border-box;
@@ -18,37 +18,37 @@
   max-width: calc(100% / 6 - 20px);
   background-color: transparent;
   cursor: pointer;
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5/3;
+    object-fit: cover;
+    border-radius: 10px;
+  }
 }
 
-.home.card img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 5/3;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.home#description {
+.home.description {
   margin-top: 16px;
   display: flex;
   justify-content: left;
   width: 100%;
-}
 
-.home#description img {
-  width: 36px;
-  height: 36px;
-  margin: 0 12px 0 0;
-  object-fit: cover;
-  border-radius: 100%;
+  img {
+    width: 36px;
+    height: 36px;
+    margin: 0 12px 0 0;
+    object-fit: cover;
+    border-radius: 100%;
+  }
 }
-.home#description #title p {
+.home.title p {
   margin: 0;
   font-size: 16px;
   color: white;
 }
 
-.home#description #detail p {
+.home.detail p {
   margin: 0;
   font-size: 12px;
   color: gray;

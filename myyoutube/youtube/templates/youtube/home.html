@@ -1,22 +1,25 @@
-{% extends 'youtube/base.html' %} {% block content %} {% for video in videos %}
-<div class="card home">
-  <a href="{% url 'video_detail' pk=video.pk %}">
-    <img src="{{video.thumbnail.url}}" class="video-link" />
-  </a>
-  <div id="description" class="home">
-    <img src="{{video.thumbnail.url}}" />
-    <div id="text">
-      <a id="title" href="{% url 'video_detail' pk=video.pk %}">
-        <p>{{video.title}}</p>
-      </a>
-      <div id="detail">
-        <p>hogehogeチャンネル</p>
-        <p>59万回視聴 {{ video.published_at|timesince }}前</p>
+{% extends 'youtube/base.html' %} {% block content %}
+<div id="card-group" class="home">
+  {% for video in videos %}
+  <div class="card home">
+    <a href="{% url 'video_detail' pk=video.pk %}">
+      <img src="{{video.thumbnail.url}}" />
+    </a>
+    <div class="description home">
+      <img src="{{video.thumbnail.url}}" />
+      <div>
+        <a class="title home" href="{% url 'video_detail' pk=video.pk %}">
+          <p>{{video.title}}</p>
+        </a>
+        <div class="detail home">
+          <p>hogehogeチャンネル</p>
+          <p>59万回視聴 {{ video.published_at|timesince }}前</p>
+        </div>
       </div>
     </div>
   </div>
+  {% endfor %}
 </div>
-{% endfor %}
 <div style="height: auto; flex-grow: 1">
   <!--カードを左側に寄せる役-->
 </div>

@@ -8,6 +8,7 @@ body {
 p {
   overflow: hidden;
   font-size: 10px;
+  white-space: nowrap;
 }
 
 a {
@@ -29,18 +30,18 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
 
-.base#topbar .button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.base#topbar .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /*◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤サイドバー◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤*/
@@ -49,17 +50,17 @@ a {
   position: fixed;
   left: 0px;
   top: 56px;
-}
 
-.base#sidebar .button {
-  width: 64px;
-  height: auto;
-  padding: 16px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  white-space: nowrap;
+  .button {
+    width: 64px;
+    height: auto;
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+  }
 }
 
 /*◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤コンテンツ◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤*/
